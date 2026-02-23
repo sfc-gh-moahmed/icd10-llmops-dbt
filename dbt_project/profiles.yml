@@ -3,11 +3,11 @@ icd10_llmops:
   outputs:
     dev:
       type: snowflake
-      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
-      user: "{{ env_var('SNOWFLAKE_USER') }}"
-      authenticator: snowflake
-      role: "{{ env_var('SNOWFLAKE_ROLE', 'ACCOUNTADMIN') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'COMPUTE_WH') }}"
-      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
+      account: sfsenorthamerica-moizahmeddemo
+      user: MAHMED
+      authenticator: externalbrowser
+      role: ACCOUNTADMIN
+      warehouse: XSMALL_WH
+      database: ASPEN_AI_POC
+      schema: ICD10_DEMO
       threads: 4

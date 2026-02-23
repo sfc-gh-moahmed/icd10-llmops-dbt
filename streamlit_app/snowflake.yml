@@ -1,0 +1,12 @@
+definition_version: 2
+
+entities:
+  icd10_llmops_demo:
+    type: streamlit
+    identifier:
+      name: ICD10_LLMOPS_DEMO
+    title: "ICD-10 LLMOps Demo"
+    query_warehouse: XSMALL_WH
+    main_file: streamlit_app.py
+    artifacts:
+      - environment.yml
