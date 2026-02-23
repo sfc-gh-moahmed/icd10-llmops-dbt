@@ -1,0 +1,34 @@
+name: 'icd10_llmops'
+version: '1.0.0'
+config-version: 2
+
+profile: 'icd10_llmops'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  # Experiment Configuration
+  experiment_id: 'default'
+  experiment_name: 'Default Experiment'
+  model_name: 'claude-3-5-sonnet'
+
+models:
+  icd10_llmops:
+    staging:
+      +materialized: view
+      +schema: ICD10_DEMO
+    llm_extraction:
+      +materialized: table
+      +schema: ICD10_DEMO
+    evaluation:
+      +materialized: table
+      +schema: ICD10_DEMO

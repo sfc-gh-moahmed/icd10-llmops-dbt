@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: icd10_demo
+    database: ASPEN_AI_POC
+    schema: ICD10_DEMO
+    tables:
+      - name: BATCHED_EVENTS
+        description: "Source patient batched clinical events"
+        columns:
+          - name: AGILON_MEMBER_ID
+            description: "Patient identifier"
+          - name: BATCH_NUMBER
+            description: "Batch sequence number"
+          - name: BATCHED_EVENTS
+            description: "Clinical events text content"
+          - name: MIN_EVENT_DATE
+            description: "Earliest event date in batch"
+          - name: MAX_EVENT_DATE
+            description: "Latest event date in batch"
+            
+      - name: GROUND_TRUTH
+        description: "Ground truth ICD-10 codes for evaluation"
+        columns:
+          - name: AGILON_MEMBER_ID
+            description: "Patient identifier"
+          - name: EXPECTED_ICD10_CODES
+            description: "Comma-separated expected ICD-10 codes"
+          - name: NOTES
+            description: "Description of conditions"
