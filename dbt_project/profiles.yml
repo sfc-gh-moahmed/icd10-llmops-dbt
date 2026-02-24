@@ -5,6 +5,7 @@ icd10_llmops:
       type: snowflake
       account: "placeholder"
       user: "placeholder"
+      role: ACCOUNTADMIN
       database: ASPEN_AI_POC
       schema: ICD10_DEMO
       warehouse: XSMALL_WH
