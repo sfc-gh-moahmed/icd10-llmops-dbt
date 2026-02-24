@@ -13,7 +13,7 @@ import json
 session = get_active_session()
 
 # Configuration
-DATABASE = "ASPEN_AI_POC"
+DATABASE = "ICD10_POC"
 SCHEMA = "ICD10_DEMO"  # Source data schema
 DBT_SCHEMA = "ICD10_DEMO_ICD10_DEMO"  # dbt outputs to this schema
 DBT_PROJECT = "ICD10_LLMOPS_PROJECT"
