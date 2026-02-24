@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: icd10_demo
-    database: ICD10_POC
+    database: ASPEN_AI_POC
     schema: ICD10_DEMO
     tables:
       - name: BATCHED_EVENTS

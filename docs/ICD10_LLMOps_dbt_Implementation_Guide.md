@@ -424,7 +424,7 @@ version: 2
 
 sources:
   - name: icd10_demo
-    database: ICD10_POC
+    database: ASPEN_AI_POC
     schema: ICD10_DEMO
     tables:
       - name: BATCHED_EVENTS
@@ -457,7 +457,7 @@ sources:
 ```bash
 # Deploy dbt project to Snowflake
 snow dbt deploy ICD10_LLMOPS_PROJECT \
-  --database ICD10_POC \
+  --database ASPEN_AI_POC \
   --schema ICD10_DEMO \
   --connection YOUR_CONNECTION
 ```
@@ -466,10 +466,10 @@ snow dbt deploy ICD10_LLMOPS_PROJECT \
 
 ```sql
 -- Run from Snowflake worksheet or via CLI
-EXECUTE DBT PROJECT ICD10_POC.ICD10_DEMO.ICD10_LLMOPS_PROJECT;
+EXECUTE DBT PROJECT ASPEN_AI_POC.ICD10_DEMO.ICD10_LLMOPS_PROJECT;
 
 -- Or with custom variables
-EXECUTE DBT PROJECT ICD10_POC.ICD10_DEMO.ICD10_LLMOPS_PROJECT
+EXECUTE DBT PROJECT ASPEN_AI_POC.ICD10_DEMO.ICD10_LLMOPS_PROJECT
   ARGS = '{"vars": {"experiment_id": "exp_001", "experiment_name": "Production Run"}}';
 ```
 
@@ -698,7 +698,7 @@ The Streamlit in Snowflake (SiS) application provides a visual interface for:
 ```bash
 # Deploy Streamlit app to Snowflake
 snow streamlit deploy \
-  --database ICD10_POC \
+  --database ASPEN_AI_POC \
   --schema ICD10_DEMO \
   --connection YOUR_CONNECTION \
   --replace
