@@ -37,10 +37,11 @@ def run_query(sql):
         return pd.DataFrame()
 
 def run_dbt_project():
-    """Execute the deployed dbt project"""
-    dbt_sql = f"EXECUTE DBT PROJECT {DATABASE}.{SCHEMA}.{DBT_PROJECT}"
+    """Execute the deployed dbt project via caller's rights stored procedure.
+    Streamlit runs with owner's rights which blocks SHOW PARAMETER needed by dbt adapter.
+    The SP uses EXECUTE AS CALLER to avoid this restriction."""
     try:
-        result = session.sql(dbt_sql).collect()
+        result = session.sql(f"CALL {DATABASE}.{SCHEMA}.RUN_DBT_PIPELINE()").collect()
         return True, "dbt project executed successfully", ""
     except Exception as e:
         return False, "", str(e)
