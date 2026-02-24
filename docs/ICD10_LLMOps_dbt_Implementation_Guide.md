@@ -376,7 +376,7 @@ icd10_llmops:
       type: snowflake
       account: <your_account>
       user: <your_user>
-      authenticator: externalbrowser
+      # DO NOT add authenticator: externalbrowser - causes SHOW PARAMETER error in native dbt
       role: <your_role>
       warehouse: <your_warehouse>
       database: <your_database>
