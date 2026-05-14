@@ -113,11 +113,18 @@ parsed_results AS (
             llm_raw_response::VARCHAR
         ) AS llm_response_text,
         -- Extract structured fields from response - parse the JSON from the message
+        -- Strip markdown code fences (```json ... ```) that some models wrap around JSON output
         TRY_PARSE_JSON(
-            COALESCE(
-                llm_raw_response:choices[0]:messages::VARCHAR,
-                llm_raw_response:choices[0]:message::VARCHAR,
-                llm_raw_response::VARCHAR
+            REGEXP_REPLACE(
+                REGEXP_REPLACE(
+                    COALESCE(
+                        llm_raw_response:choices[0]:messages::VARCHAR,
+                        llm_raw_response:choices[0]:message::VARCHAR,
+                        llm_raw_response::VARCHAR
+                    ),
+                    '^\\s*```[a-z]*\\s*', ''
+                ),
+                '\\s*```\\s*$', ''
             )
         ) AS parsed_json
     FROM llm_calls

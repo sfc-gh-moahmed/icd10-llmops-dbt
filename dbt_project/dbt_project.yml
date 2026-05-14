@@ -19,7 +19,7 @@ vars:
   # Experiment Configuration
   experiment_id: 'default'
   experiment_name: 'Default Experiment'
-  model_name: 'claude-3-5-sonnet'
+  model_name: 'claude-sonnet-4-5'
 
 models:
   icd10_llmops:
